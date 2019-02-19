@@ -10,6 +10,51 @@
 
     <h1>Step 5 - Add CSS</h1>
 
-    
+    <input type="text" placeholder="ask a question..." />
+    <button>Get An Answer</button>
+
+    <div>
+        <h2></h2>
+        <img src="" />
+    </div>
+
+
+
+    <script>
+
+        // Note about async/await usage here
+        // fetch() and json() methods run asynchronously
+        // i.e. the 2nd line might run before the 1st line is done
+        // await keyword makes sure we wait for the result of the first line first
+        // async keyword must wrap awaited method calls
+
+        async function callAPI() {
+            let resp = await fetch('https://yesno.wtf/api');
+            let json = await resp.json();
+            //console.log(json);
+            return json;
+        }
+
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', displayAnswer);
+
+        async function displayAnswer() {
+
+            // clear any previous answer and image
+            document.querySelector('h2').textContent = '';
+            document.querySelector('img').src = '';
+
+            let data = await callAPI();  // calling the async function callAPI()
+            console.log(data);
+
+            // parse JSON and update the DOM to display
+            document.querySelector('h2').textContent = data.answer.toUpperCase();
+            document.querySelector('img').src = data.image;
+        }
+
+        
+        
+                
+    </script>    
 </body>
 </html>
