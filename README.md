@@ -10,4 +10,6 @@ Talking points can be found [here](https://docs.google.com/document/d/1-rBom1Vuf
 - [CSS Basics](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics)
 
 
-
+### Example code
+- Simply download or `git clone` or copy-paste into your own code files.
+- Follow the HTML files in this repo in the numbered sequence to see a step-by-step approach.
