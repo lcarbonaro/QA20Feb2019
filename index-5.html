@@ -41,7 +41,7 @@
         async function displayAnswer() {
 
             // clear any previous answer and image
-            document.querySelector('h2').textContent = '';
+            document.querySelector('h2').textContent = 'thinking...';
             document.querySelector('img').src = '';
 
             let data = await callAPI();  // calling the async function callAPI()
