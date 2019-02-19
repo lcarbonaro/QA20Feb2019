@@ -21,29 +21,31 @@
 
 
     <script>
-        fetch('https://yesno.wtf/api')
-        .then(
-            // short form (arrow function)
-            resp => resp.json()
-            // long form
-            /*
-            function(resp) {
-                return resp.json();
-            }
-            */
-        )
-        .then(
-            // short form
-            (data) => { 
-                console.log(data); // observe this is devtools (F12)
-            }
-            // long form 
-            /*
-            function(data) {
-                console.log(data);
-            }
-            */
-        );
+
+        // Note about async/await usage here
+        // fetch() and json() methods run asynchronously
+        // i.e. the 2nd line might run before the 1st line is done
+        // await keyword makes sure we wait for the result of the first line first
+        // async keyword must wrap awaited method calls
+
+        async function callAPI() {
+            let resp = await fetch('https://yesno.wtf/api');
+            let json = await resp.json();
+            //console.log(json);
+            return json;
+        }
+
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', displayAnswer);
+
+        async function displayAnswer() {
+            let data = await callAPI();  // calling the async function callAPI()
+            console.log(data);
+        }
+
+        
+        
+                
     </script>    
 </body>
 </html>
