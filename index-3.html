@@ -8,8 +8,42 @@
 </head>
 <body>
 
-    <h1>Example 3 - CSS</h1>
+    <h1>Step 3 - Add Event Listener</h1>
 
-    
+    <input type="text" placeholder="ask a question..." />
+    <button>Get An Answer</button>
+
+    <div>
+        <h2></h2>
+        <img src="" />
+    </div>
+
+
+
+    <script>
+        fetch('https://yesno.wtf/api')
+        .then(
+            // short form (arrow function)
+            resp => resp.json()
+            // long form
+            /*
+            function(resp) {
+                return resp.json();
+            }
+            */
+        )
+        .then(
+            // short form
+            (data) => { 
+                console.log(data); // observe this is devtools (F12)
+            }
+            // long form 
+            /*
+            function(data) {
+                console.log(data);
+            }
+            */
+        );
+    </script>    
 </body>
 </html>
