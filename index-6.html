@@ -26,7 +26,7 @@
 </head>
 <body>
 
-    <h1>Step 5 - Add CSS</h1>
+    <h1>Ask Me Anything</h1>
 
     <input type="text" placeholder="ask a question..." />
     <button>Get An Answer</button>
@@ -35,8 +35,6 @@
         <h2></h2>
         <img src="" />
     </div>
-
-
 
     <script>
 
@@ -62,16 +60,17 @@
             //document.querySelector('h2').textContent = 'thinking...';
             document.querySelector('img').src = '';
 
-            let data = await callAPI();  // calling the async function callAPI()
-            console.log(data);
+            let inp = document.querySelector('input');
+            if( inp.value !== '' ) {
+                let data = await callAPI();  // calling the async function callAPI()
+                //console.log(data);
 
-            // parse JSON and update the DOM to display
-            //document.querySelector('h2').textContent = data.answer.toUpperCase();
-            document.querySelector('img').src = data.image;
-        }
-
-        
-        
+                // parse JSON and update the DOM to display
+                //document.querySelector('h2').textContent = data.answer.toUpperCase();
+                document.querySelector('img').src = data.image;
+            }
+            
+        }        
                 
     </script>    
 </body>
