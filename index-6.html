@@ -60,8 +60,10 @@
             //document.querySelector('h2').textContent = 'thinking...';
             document.querySelector('img').src = '';
 
+            // check that a question was input
             let inp = document.querySelector('input');
             if( inp.value !== '' ) {
+                
                 let data = await callAPI();  // calling the async function callAPI()
                 //console.log(data);
 
